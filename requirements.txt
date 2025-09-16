@@ -1,0 +1,7 @@
+Flask
+Werkzeug
+PyYAML
+openai
+langchain
+chromadb
+
