@@ -1,0 +1,76 @@
+# API
+api:
+  base_url: "Your url"
+  api_key: "Your API key"
+  models:
+    multimodal: "-"  # gpt-5
+    text: "-"           # gpt-5
+    embedding: "-"  # embedding
+  embedding_dimensions: 1024
+  temperature: 0.5
+  max_tokens: 2048
+
+# ChromaDB
+chroma:
+  persist_directory: "./chroma_db"
+  collection_names:
+    imaging: "imaging_kb"
+    clinical: "clinical_kb"
+
+# EXP store/replace
+retrieval:
+  similarity_threshold: 0.8  #
+  top_k: 5                   #
+  min_score_for_experience: 6  #
+
+# agent
+agents:
+  teacher:
+    name: "Teacher"
+    avatar: "fig1.png"
+    max_iterations: 3
+  student:
+    name: "Student" 
+    avatar: "fig2.png"
+    tool_call_threshold: 0.7  #
+  imaging_robot:
+    name: "Imaging Robot"
+    avatar: "fig3.png"
+  imaging_doctor:
+    name: "Imaging Doctor"
+    avatar: "fig4.png"
+  judicial:
+    name: "Judge"
+    scoring_dimensions: ["Helpfulness", "Relevance", "Accuracy", "Level of Details"]
+    score_range: [1, 10]
+  imaging_experience:
+    name: "Imaging Experience Agent"
+  clinical_experience:
+    name: "Clinical Experience Agent"
+
+# Flask
+server:
+  host: "0.0.0.0"
+  port: 5050
+  debug: true
+  upload_folder: "./uploads"
+  max_content_length: 16777216  # 16MB
+
+# tools
+tools:
+  pubmed:
+    base_url: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
+    max_results: 5
+    timeout: 30
+
+# system
+system:
+  default_mode: "consultation"  # consultation or training
+  enable_experience_extraction: true
+  enable_streaming: true
+
+# log
+logging:
+  level: "INFO"
+  file: "./logs/medmentor.log"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
