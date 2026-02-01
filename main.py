@@ -328,7 +328,7 @@ def create_app() -> Flask:
 
 app = create_app()
 
-#  `python main.py` 直
+#  `python main.py` 
 if __name__ == "__main__":
     cfg = load_config(os.environ.get("MEDMENTOR_CONFIG", DEFAULT_CONFIG_PATH))
     setup_logging(cfg)
